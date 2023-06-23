@@ -1,0 +1,20 @@
+<link rel="stylesheet" type="text/css" href="geo_main.css" />
+<h1>GeoGuesser</h1>
+<nav>
+<header class="header"> 
+        <div class ="menu">
+        <ul class="header_list"><div class="other_shift">
+                <li>
+        <a href="{{ url_for ('home_bp.home') }}">Home</a>
+                </li>
+                <li>
+        <a href="{{ url_for ('home_bp.all_users') }}">Users</a>
+                </li>
+                <li>
+        <a href="{{ url_for ('auth_bp.register') }}">Register</a>
+                </li> </div>
+                <li><div class="login_shift"><a href="{{ url_for ('auth_bp.login') }}">Login</a></div></li>
+       
+        </ul>
+        </div></div>
+</nav>
