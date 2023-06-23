@@ -46,14 +46,14 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
+        user = User.query.filter_by(alias=form.username.data).first()
         print(user)
 
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             print("logging user in")
             login_user(user)
             print(current_user)
-            flash(' Welcom {cyrrebt_user.firstname} {current_user.lastname}!')
+            flash(' Welcom {{current_user.firstname}} {{current_user.lastname}}!')
             return redirect(url_for('home_bp.home'))
         else:
             flash('Login Unsuccessful, Please check username and password', 'danger')
