@@ -72,7 +72,7 @@ def register():
 
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data, alias=form.alias.data, password=hashed_password)
+        user = User(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data, username=form.username.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
 

@@ -3,29 +3,17 @@
 {% block content %}
 
 <div class="content-section">
-
     <form method="POST" action="">
-
         {{ form.hidden_tag() }}
-
-        <fieldset class="form-group">
-
+        <div class="form-group">
             <legend class="border-bottom">User Registration</legend>
-
             <div class="form-group">
-
                 {{ form.firstname.label(class="form-control-label") }}
-
                 {% if form.firstname.errors %}
-
                     {{ form.firstname(class="form-control from-control-lg is-invalid") }}
-
                     <div class="invalid-feedback">
-
                         {% for error in form.firstname.errors %}
-
                         <span>{{ error }}</span>
-
                         {% endfor %}
                     </div>
                 {% else %}
@@ -46,16 +34,16 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.alias.label(class="form-control-label") }}
-                {% if form.alias.errors %}
-                    {{ form.alias(class="form-control from-control-lg is-invalid") }}
+                {{ form.username.label(class="form-control-label") }}
+                {% if form.username.errors %}
+                    {{ form.username(class="form-control from-control-lg is-invalid") }}
                     <div class="invalid-feedback">
-                        {% for error in form.alias.errors %}
+                        {% for error in form.username.errors %}
                         <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.alias(class="form-control from-control-lg") }}
+                    {{ form.username(class="form-control from-control-lg") }}
                 {% endif %}
             </div>
             <div class="form-group">
@@ -103,7 +91,7 @@
             <div>
                 {{ form.submit(class="") }}
             </div>
-        </fieldset>
+        </div>
     </form>
 
 </div>
