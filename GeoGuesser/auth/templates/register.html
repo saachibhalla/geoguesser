@@ -6,7 +6,7 @@
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         <div class="form-group">
-            <legend class="border-bottom">User Registration</legend>
+            <legend class="border-bottom">Create Account</legend>
             <div class="form-group">
                 {{ form.firstname.label(class="form-control-label") }}
                 {% if form.firstname.errors %}
@@ -89,11 +89,13 @@
                 {% endif %}
             </div>
             <div>
-                {{ form.submit(class="") }}
+                <br>
+                <center>{{ form.submit(class="") }}</center>
+                <br>
             </div>
         </div>
     </form>
-
+    <p class="specify"> Already have an account? <span> </span><a href="{{ url_for ('auth_bp.login')}}"><b>Login here</b></a></p>
 </div>
 
 

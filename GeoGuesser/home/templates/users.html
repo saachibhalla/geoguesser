@@ -2,14 +2,15 @@
 {% extends 'layout.html' %}
 {% block content %}
 
-<div class="main-container">
-<ul>
+<center><div class="main-container">
+<ul class="user_list">
+      <h4>Users Registered in Database:</h4>
+      <br>
 {% for user in users %}
       <li>{{user}}</li>
 {% endfor %}
 </ul>
-Blah Blah Blah
-</div>
+</div></center>
 {% endblock %}
 
 
