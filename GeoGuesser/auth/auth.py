@@ -30,13 +30,11 @@ auth_bp = Blueprint(
     __name__,
     url_prefix='/auth/',
     template_folder='templates'
-
 )
 
 #define routes
 
 #login
-
 @auth_bp.route('/login/', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -53,17 +51,19 @@ def login():
             print("logging user in")
             login_user(user)
             print(current_user)
-            flash(' Welcom {{current_user.firstname}} {{current_user.lastname}}!')
+            flash(f'Welcome {current_user.firstname} {current_user.lastname}!')
             return redirect(url_for('home_bp.home'))
         else:
             flash('Login Unsuccessful, Please check username and password', 'danger')
     return render_template('login.html', title='User Login', form=form)
+
 
 #logout
 @auth_bp.route('/logout/')
 def logout():
     logout_user()
     return redirect(url_for('home_bp.home, home'))
+
 
 #register
 @auth_bp.route('/register/', methods=['GET', 'POST'])
@@ -72,10 +72,9 @@ def register():
 
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data, username=form.username.data, password=hashed_password)
+        user = User(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data, alias=form.username.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-
 
         flash(f'Account has been created for {user.firstname} {user.lastname}')
         return redirect(url_for('home_bp.home'))
