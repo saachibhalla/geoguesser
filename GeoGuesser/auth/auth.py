@@ -53,7 +53,7 @@ def login():
             print("logging user in")
             login_user(user)
             print(current_user)
-            flash(' Welcome {{current_user.firstname}} {{current_user.lastname}}!')
+            flash(' Welcome!')
             return redirect(url_for('home_bp.home'))
         else:
             flash('Login Unsuccessful, Please check username and password', 'danger')
